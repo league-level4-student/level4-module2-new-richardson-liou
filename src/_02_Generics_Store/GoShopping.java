@@ -24,7 +24,7 @@ public class GoShopping {
 		cereal.add(new Cereal());
 		
 		
-		// 5. Call the showCart() method on EACH cart
+		// 5. Call the showCart() method on EACH cart  ss
 		
 		
 		// 6. Run the code
