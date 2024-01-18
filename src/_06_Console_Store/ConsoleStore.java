@@ -1,5 +1,16 @@
 package _06_Console_Store;
 
+import java.util.Scanner;
+
+import _02_Generics_Store.Cart;
+import _02_Generics_Store.Candy;
+import _02_Generics_Store.Cereal;
+import _02_Generics_Store.Clothing;
+import _02_Generics_Store.Toy;
+import _02_Generics_Store.Food;
+import _02_Generics_Store.NonFood;
+
+
 public class ConsoleStore {
 
     /*
@@ -37,7 +48,34 @@ public class ConsoleStore {
      */
 
     public static void main(String[] args) {
+    	Scanner scan = new Scanner(System.in);
+    	Cart<NonFood> noFoodCart = new Cart<>();
+    	Cart<Food> foodCart = new Cart<>();
+        double stipend = 50.0;
 
+        Food candy = new Candy();
+        Food cereal = new Cereal();
+        NonFood clothing = new Clothing();
+        NonFood toy = new Toy();
+
+        double candyPrice = 5.0;
+        double cerealPrice = 7.0;
+        double clothingPrice = 15.0;
+        double toyPrice = 10.0;
+
+        do {
+            System.out.println("Welcome to the store! Your stipend: $" + stipend);
+            System.out.println("1. Candy - $" + candyPrice);
+            System.out.println("2. Cereal - $" + cerealPrice);
+            System.out.println("3. Clothing - $" + clothingPrice);
+            System.out.println("4. Toy - $" + toyPrice);
+            System.out.println("5. View Cart");
+            System.out.println("6. Checkout");
+
+            
+
+        } while (true); 
     }
 
+ 
 }
