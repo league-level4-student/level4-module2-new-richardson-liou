@@ -12,11 +12,11 @@ import javax.swing.JPanel;
  */
 
 @SuppressWarnings("unchecked")
-public class Cart<T extends NonFood> {
+public class Cart<T extends Food > {
     private T[] cart;
 
     public Cart() {
-        cart = (T[]) new NonFood[5];
+        cart = (T[]) new Food[5];
     }
 
     // Adds an item to the cart
@@ -30,6 +30,15 @@ public class Cart<T extends NonFood> {
         JOptionPane.showMessageDialog(null,
                 "Your cart is full!\nNo more than 5 items");
     }
+    
+    public void remove(String item) {
+    	for(int i = 0; i<cart.length; i++) {
+    		if(cart[i].toString().equals(item)) {
+    			cart[i] =null;
+   
+    		}
+    	}
+    }
 
     // Displays everything currently in the cart
     public void showCart() {
@@ -41,13 +50,13 @@ public class Cart<T extends NonFood> {
 
         for (int i = 0; i < cart.length; i++) {
             if (cart[i] != null) {
-                panel.add(cart[i].getNonFood());
+                panel.add(cart[i].getFood());
             }
         }
         frame.pack();
 
     }
-
+    
     public int length() {
         return cart.length;
     }

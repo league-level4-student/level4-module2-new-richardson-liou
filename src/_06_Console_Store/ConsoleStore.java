@@ -46,36 +46,110 @@ public class ConsoleStore {
      * print out a receipt showing their name, the individual prices of the
      * items and their total.
      */
+	Food twix = new Candy();
+    Food cheerios = new Cereal();
+    Food snickers = new Candy();
+    Food luckyCharms = new Cereal();
+
 
     public static void main(String[] args) {
     	Scanner scan = new Scanner(System.in);
-    	Cart<NonFood> noFoodCart = new Cart<>();
     	Cart<Food> foodCart = new Cart<>();
         double stipend = 50.0;
 
-        Food candy = new Candy();
-        Food cereal = new Cereal();
-        NonFood clothing = new Clothing();
-        NonFood toy = new Toy();
+        Food twix = new Candy();
+        Food cheerios = new Cereal();
+        Food snickers = new Candy();
+        Food luckyCharms = new Cereal();
 
-        double candyPrice = 5.0;
-        double cerealPrice = 7.0;
-        double clothingPrice = 15.0;
-        double toyPrice = 10.0;
+        double twixPrice = 3.0;
+        double cheeriosPrice = 7.0;
+        double charmsPrice = 9.0;
+        double snickersPrice = 3.5;
+
 
         do {
             System.out.println("Welcome to the store! Your stipend: $" + stipend);
-            System.out.println("1. Candy - $" + candyPrice);
-            System.out.println("2. Cereal - $" + cerealPrice);
-            System.out.println("3. Clothing - $" + clothingPrice);
-            System.out.println("4. Toy - $" + toyPrice);
-            System.out.println("5. View Cart");
-            System.out.println("6. Checkout");
+            System.out.println("1. Snickers - $" + snickersPrice);
+            System.out.println("2. Twix - $" + twixPrice);
+            System.out.println("3. Cheerios - $" + cheeriosPrice);
+            System.out.println("4. Lucky Charms - $" + charmsPrice);
+            System.out.println("5. Remove items from cart" );
+            System.out.println("6. View Cart");
+            System.out.println("7. Checkout");
 
-            
+            int choice = scan.nextInt();
+            switch (choice) {
+            case 1:
+                if (stipend >= snickersPrice) {
+                    foodCart.add(new Candy());
+                    stipend -= snickersPrice;
+                } 
+                break;
+            case 2:
+            	if (stipend >= twixPrice) {
+            		foodCart.add(new Candy());
+            		stipend -= snickersPrice;
+            	}
+            	
+                break;
+            case 3:
+            	if (stipend >= cheeriosPrice) {
+            		foodCart.add(new Cereal());
+            		stipend -= cheeriosPrice;
+            	}
+            	
+                break;
+            case 4:
+            	if (stipend >= charmsPrice) {
+            		foodCart.add(new Cereal());
+            		stipend -= charmsPrice;
+            	}
+            	
+                break;
+            case 5:
+            	System.out.println("What would you like to remove");
+            	String item = scan.nextLine();
+                foodCart.remove(item);
+            case 6:
+            	foodCart.showCart();
+                break;
+                
+            case 7:
+            	if (stipend<0) {
+                	System.out.println("You do not have enough money to purchase these items, what would you like to remove");
+                	String extraItem = scan.nextLine();
+                	
+                	foodCart.remove(extraItem);
+                
+                }
+                
+            default:
+                System.out.println("Invalid choice. Try again.");
+                break;
+            }
 
         } while (true); 
+        
+    }
+    private static double getPrice(NonFood item) {
+		return 0;
+        // Implement logic to get the price of each item
+        // You might need to modify this based on your actual implementation
+        
     }
 
+    
+    private static double calculateTotalCost(Cart<Food> cart) {
+    	
+            double total = 0.0;
+            
+            return total;
+        }
+    
+
+    
+    
+   
  
 }
