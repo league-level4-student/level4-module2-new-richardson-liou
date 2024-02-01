@@ -33,9 +33,9 @@ public class Cart<T extends Food > {
     
     public void remove(String item) {
     	for(int i = 0; i<cart.length; i++) {
-    		if(cart[i].toString().equals(item)) {
+    		if(cart[i] != null && cart[i].item.equals(item)) {
     			cart[i] =null;
-   
+    			break;
     		}
     	}
     }

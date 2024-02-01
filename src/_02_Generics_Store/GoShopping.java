@@ -34,18 +34,7 @@ public class GoShopping {
 		// 7. Comment out the code you have so far
 		
 		// 8. Repeat steps 2-5 for a Clothing Cart and a Toy Cart
-		Cart<Clothing>clothCart = new Cart<>();
-		Cart<Toy>toys = new Cart<>();
-		
-		clothCart.add(new Clothing());
-		clothCart.add(new Clothing());
-		clothCart.add(new Clothing());
-		
-		toys.add(new Toy());
-		toys.add(new Toy());
-		toys.add(new Toy());
-		
-		
+
 		// Why are there errors?
 		// Cart only takes food types
 		// 9. Modify the Cart class so that this code compiles

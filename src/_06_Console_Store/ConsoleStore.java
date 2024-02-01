@@ -55,7 +55,7 @@ public class ConsoleStore {
     public static void main(String[] args) {
     	Scanner scan = new Scanner(System.in);
     	Cart<Food> foodCart = new Cart<>();
-        double stipend = 50.0;
+        double stipend = 35.0;
 
         Food twix = new Candy();
         Food cheerios = new Cereal();
@@ -66,64 +66,63 @@ public class ConsoleStore {
         double cheeriosPrice = 7.0;
         double charmsPrice = 9.0;
         double snickersPrice = 3.5;
-
+        System.out.println("Welcome to the store! Your stipend: $" + stipend);
+        System.out.println("1. Snickers - $" + snickersPrice);
+        System.out.println("2. Twix - $" + twixPrice);
+        System.out.println("3. Cheerios - $" + cheeriosPrice);
+        System.out.println("4. Lucky Charms - $" + charmsPrice);
+        System.out.println("5. Remove items from cart" );
+        System.out.println("6. View Cart");
+        System.out.println("7. Checkout");
 
         do {
-            System.out.println("Welcome to the store! Your stipend: $" + stipend);
-            System.out.println("1. Snickers - $" + snickersPrice);
-            System.out.println("2. Twix - $" + twixPrice);
-            System.out.println("3. Cheerios - $" + cheeriosPrice);
-            System.out.println("4. Lucky Charms - $" + charmsPrice);
-            System.out.println("5. Remove items from cart" );
-            System.out.println("6. View Cart");
-            System.out.println("7. Checkout");
+            
 
             int choice = scan.nextInt();
             switch (choice) {
             case 1:
-                if (stipend >= snickersPrice) {
                     foodCart.add(new Candy());
                     stipend -= snickersPrice;
-                } 
+                    System.out.println("Stiped: " +stipend);
                 break;
             case 2:
-            	if (stipend >= twixPrice) {
+
             		foodCart.add(new Candy());
             		stipend -= snickersPrice;
-            	}
-            	
+            		System.out.println("Stiped: " +stipend);
                 break;
             case 3:
-            	if (stipend >= cheeriosPrice) {
             		foodCart.add(new Cereal());
             		stipend -= cheeriosPrice;
-            	}
-            	
+            		System.out.println("Stiped: " +stipend);
                 break;
             case 4:
-            	if (stipend >= charmsPrice) {
             		foodCart.add(new Cereal());
             		stipend -= charmsPrice;
-            	}
+            		System.out.println("Stiped: " +stipend);
             	
                 break;
             case 5:
             	System.out.println("What would you like to remove");
             	String item = scan.nextLine();
                 foodCart.remove(item);
+                break;
             case 6:
             	foodCart.showCart();
                 break;
                 
             case 7:
-            	if (stipend<0) {
+            	System.out.println("7");
+
+            		while(stipend< 0) {
                 	System.out.println("You do not have enough money to purchase these items, what would you like to remove");
                 	String extraItem = scan.nextLine();
                 	
                 	foodCart.remove(extraItem);
-                
-                }
-                
+                	System.out.println("Stipend: "+ stipend);
+            		}
+            		System.out.println("You bought: ");
+                                
             default:
                 System.out.println("Invalid choice. Try again.");
                 break;
