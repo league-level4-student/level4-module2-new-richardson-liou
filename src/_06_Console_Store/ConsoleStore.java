@@ -81,13 +81,13 @@ public class ConsoleStore {
             scan.nextLine();
             switch (choice) {
             case 1:
-                    foodCart.add(new Candy());
+                    foodCart.add(new Snickers());
                     stipend -= snickersPrice;
                     System.out.println("Stipend: " +stipend);
                 break;
             case 2:
 
-            		foodCart.add(new Candy());
+            		foodCart.add(new Twix());
             		stipend -= snickersPrice;
             		System.out.println("Stipend: " +stipend);
                 break;
