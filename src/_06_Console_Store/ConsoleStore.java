@@ -6,9 +6,11 @@ import _02_Generics_Store.Cart;
 import _02_Generics_Store.Candy;
 import _02_Generics_Store.Cereal;
 import _02_Generics_Store.Clothing;
-import _02_Generics_Store.Toy;
 import _02_Generics_Store.Food;
 import _02_Generics_Store.NonFood;
+import _02_Generics_Store.Snickers;
+import _02_Generics_Store.Toy;
+import _02_Generics_Store.Twix;
 
 
 public class ConsoleStore {
@@ -46,20 +48,17 @@ public class ConsoleStore {
      * print out a receipt showing their name, the individual prices of the
      * items and their total.
      */
-	Food twix = new Candy();
-    Food cheerios = new Cereal();
-    Food snickers = new Candy();
-    Food luckyCharms = new Cereal();
 
+    static Cart<Food> foodCart = new Cart<>();
+    static double stipend = 35.0;
 
     public static void main(String[] args) {
     	Scanner scan = new Scanner(System.in);
-    	Cart<Food> foodCart = new Cart<>();
-        double stipend = 35.0;
 
-        Food twix = new Candy();
+
+        Food twix = new Twix();
         Food cheerios = new Cereal();
-        Food snickers = new Candy();
+        Food snickers = new Snickers();
         Food luckyCharms = new Cereal();
 
         double twixPrice = 3.0;
@@ -79,33 +78,48 @@ public class ConsoleStore {
             
 
             int choice = scan.nextInt();
+            scan.nextLine();
             switch (choice) {
             case 1:
                     foodCart.add(new Candy());
                     stipend -= snickersPrice;
-                    System.out.println("Stiped: " +stipend);
+                    System.out.println("Stipend: " +stipend);
                 break;
             case 2:
 
             		foodCart.add(new Candy());
             		stipend -= snickersPrice;
-            		System.out.println("Stiped: " +stipend);
+            		System.out.println("Stipend: " +stipend);
                 break;
             case 3:
             		foodCart.add(new Cereal());
             		stipend -= cheeriosPrice;
-            		System.out.println("Stiped: " +stipend);
+            		System.out.println("Stipend: " +stipend);
                 break;
             case 4:
             		foodCart.add(new Cereal());
             		stipend -= charmsPrice;
-            		System.out.println("Stiped: " +stipend);
+            		System.out.println("Stipend: " +stipend);
             	
                 break;
             case 5:
             	System.out.println("What would you like to remove");
             	String item = scan.nextLine();
                 foodCart.remove(item);
+                if(item.equals("Snickers")) {
+            		stipend += snickersPrice;
+            	}
+            	if(item.equals("Twix")) {
+            		stipend += twixPrice;
+            	}
+            	if(item.equals("Cheerios")) {
+            		stipend += cheeriosPrice;
+            	}
+            	if(item.equals("Lucky Charms")) {
+            		stipend += charmsPrice;
+            	}
+            	System.out.println("Stipend: " + stipend);
+                
                 break;
             case 6:
             	foodCart.showCart();
@@ -118,11 +132,26 @@ public class ConsoleStore {
                 	System.out.println("You do not have enough money to purchase these items, what would you like to remove");
                 	String extraItem = scan.nextLine();
                 	
+                	if(extraItem.equals("Snickers")) {
+                		stipend += snickersPrice;
+                	}
+                	if(extraItem.equals("Twix")) {
+                		stipend += twixPrice;
+                	}
+                	if(extraItem.equals("Cheerios")) {
+                		stipend += cheeriosPrice;
+                	}
+                	if(extraItem.equals("Lucky Charms")) {
+                		stipend += charmsPrice;
+                	}
+                	
                 	foodCart.remove(extraItem);
                 	System.out.println("Stipend: "+ stipend);
             		}
-            		System.out.println("You bought: ");
-                                
+            		double cost = calculateTotalCost();
+            		System.out.println("Your cost is: "+ cost);
+            		foodCart.showCart();
+                break;            
             default:
                 System.out.println("Invalid choice. Try again.");
                 break;
@@ -131,17 +160,12 @@ public class ConsoleStore {
         } while (true); 
         
     }
-    private static double getPrice(NonFood item) {
-		return 0;
-        // Implement logic to get the price of each item
-        // You might need to modify this based on your actual implementation
-        
-    }
+
 
     
-    private static double calculateTotalCost(Cart<Food> cart) {
+    private static double calculateTotalCost() {
     	
-            double total = 0.0;
+            double total = 35.0-stipend;
             
             return total;
         }

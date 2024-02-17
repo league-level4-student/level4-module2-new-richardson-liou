@@ -7,10 +7,10 @@ import javax.swing.JLabel;
 public class Cereal extends Food{
 	public Cereal() {
 		if(new Random().nextBoolean()) {
-			this.item = "cereal1.jpeg";
+			this.item = "cheerios.jpeg";
 		}
 		else {
-			this.item = "cereal2.jpeg";
+			this.item = "luckycharms.jpeg";
 		}
 	}
 
